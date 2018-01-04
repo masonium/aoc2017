@@ -12,6 +12,9 @@ use aoc2017::day04::solve as day04_solve;
 use aoc2017::day05::solve as day05_solve;
 use aoc2017::day06::solve as day06_solve;
 use aoc2017::day07::solve as day07_solve;
+use aoc2017::day08::solve as day08_solve;
+use aoc2017::day09::solve as day09_solve;
+use aoc2017::day10::solve as day10_solve;
 use util::Part;
 
 fn main() {
@@ -44,4 +47,15 @@ fn main() {
 
     println!("7A: {:?}", day07_solve("inputs/day07.txt", Part::A));
     println!("7B: {:?}", day07_solve("inputs/day07.txt", Part::B));
+
+    println!("8A: {:?}", day08_solve("inputs/day08.txt", Part::A));
+    println!("8B: {:?}", day08_solve("inputs/day08.txt", Part::B));
+
+    println!("9A: {:?}", day09_solve("inputs/day09.txt", Part::A));
+    println!("9B: {:?}", day09_solve("inputs/day09.txt", Part::B));
+
+    let input_10 = "197,97,204,108,1,29,5,71,0,50,2,255,248,78,254,63";
+    println!("10A: {:?}", day10_solve(input_10, Part::A));
+    println!("10B: {:?}", day10_solve(input_10, Part::B));
+
 }
