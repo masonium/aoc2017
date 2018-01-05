@@ -27,6 +27,18 @@ fn knot_mix(list: &mut [u8], lengths: &[usize], rounds: usize) {
     }
 }
 
+pub fn knot_hash(line: &str) -> String{
+    let mut list: Vec<u8> = (0..256).map(|x| x as u8).collect();
+    let mut lengths: Vec<_> = line.bytes().map(|x| x as usize).collect();
+    lengths.extend_from_slice(&[17,31,73,47,23]);
+    knot_mix(&mut list, &lengths, 64);
+
+    let vals: Vec<_> = list.chunks(16)
+        .map(|chunk| chunk.iter().fold(0, |a, b| a ^ b))
+        .map(|x| format!("{:02x}", x)).collect();
+    vals.join("")
+}
+
 pub fn solve(line: &str, p: Part) -> io::Result<Answer> {
     let split_re = Regex::new(r",").unwrap();
 
@@ -42,16 +54,7 @@ pub fn solve(line: &str, p: Part) -> io::Result<Answer> {
             Ok(Answer::A(list[0] as u16 * list[1] as u16))
         },
         Part::B => {
-            let mut lengths: Vec<_> = line.bytes().map(|x| x as usize).collect();
-            lengths.extend_from_slice(&[17,31,73,47,23]);
-            knot_mix(&mut list, &lengths, 64);
-
-            let vals: Vec<_> = list.chunks(16)
-                .map(|chunk| chunk.iter().fold(0, |a, b| a ^ b))
-                .map(|x| format!("{:02x}", x)).collect();
-            let res = vals.join("");
-            assert_eq!(res.len(), 32);
-            Ok(Answer::B(res))
+            Ok(Answer::B(knot_hash(line)))
         }
     }
 }
