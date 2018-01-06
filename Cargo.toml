@@ -6,3 +6,4 @@ authors = ["Mason Smith <masonium@gmail.com>"]
 [dependencies]
 regex = "*"
 lazy_static = "*"
+ndarray = "*"

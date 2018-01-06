@@ -37,7 +37,5 @@ fn until_repeat(mut v: Vec<u8>, p: Part) -> u64 {
         } else {
             hs.insert(v.clone(), count as usize);
         }
-
     }
-    count
 }

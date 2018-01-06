@@ -1,6 +1,9 @@
+#![feature(slice_rotate)]
+
 extern crate regex;
 #[macro_use]
 extern crate lazy_static;
+extern crate ndarray;
 
 pub mod prelude;
 pub mod util;
@@ -18,3 +21,5 @@ pub mod day11;
 pub mod day12;
 pub mod day13;
 pub mod day14;
+pub mod day15;
+pub mod day16;

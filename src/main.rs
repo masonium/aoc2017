@@ -18,7 +18,9 @@ use aoc2017::day10::solve as day10_solve;
 use aoc2017::day11::solve as day11_solve;
 use aoc2017::day12::solve as day12_solve;
 use aoc2017::day13::solve as day13_solve;
-use aoc2017::day14::count_used as day14_solve;
+use aoc2017::day14::solve as day14_solve;
+use aoc2017::day15::solve as day15_solve;
+use aoc2017::day16::solve as day16_solve;
 use util::Part;
 
 fn main() {
@@ -69,8 +71,20 @@ fn main() {
     println!("12B: {:?}", day12_solve("inputs/day12.txt", Part::B));
 
     println!("13A: {:?}", day13_solve("inputs/day13.txt", Part::A));
-    println!("13B: {:?}", day13_solve("inputs/day13.txt", Part::B));
+    if !fast_only {
+        println!("13B: {:?}", day13_solve("inputs/day13.txt", Part::B));
+    }
 
     let input_14 = "jzgqcdpd";
-    println!("14A: {:?}", day14_solve(input_14));
+    println!("14A: {:?}", day14_solve(input_14, Part::A));
+    println!("14B: {:?}", day14_solve(input_14, Part::B));
+
+    if !fast_only {
+        println!("15A: {:?}", day15_solve(Part::A));
+        println!("15B: {:?}", day15_solve(Part::B));
+    }
+
+    println!("16A: {:?}", day16_solve("inputs/day16.txt", Part::A));
+    println!("16B: {:?}", day16_solve("inputs/day16.txt", Part::B));
+
 }
