@@ -7,3 +7,4 @@ authors = ["Mason Smith <masonium@gmail.com>"]
 regex = "*"
 lazy_static = "*"
 ndarray = "*"
+primal = "*"

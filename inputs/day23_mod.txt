@@ -1,0 +1,33 @@
+set b 93
+set c b
+jnz a 2
+jnz 1 5
+mul b 100
+add b 100000
+set c b
+add c 17000
+set f 1 ! beg
+set d 2
+set e 2 ! start big_loop
+set g d ! start small_loop
+mul g e
+sub g b ! mid
+jnz g 2 ! if g * e == b
+set f 0
+jnz a 9
+add e 1
+set g e
+sub g b
+jnz g -9 ! end small_loop
+add d 1
+set g d
+sub g b
+jnz g -14 ! end big_loop
+jnz f 2
+add h 1
+set g b
+sub g c
+jnz g 2
+jnz 1 3
+add b 17
+jnz 1 -24
