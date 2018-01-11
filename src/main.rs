@@ -28,11 +28,13 @@ use aoc2017::day20::solve as day20_solve;
 use aoc2017::day21::solve as day21_solve;
 use aoc2017::day22::solve as day22_solve;
 use aoc2017::day23::solve as day23_solve;
+use aoc2017::day24::solve as day24_solve;
+use aoc2017::day25::solve as day25_solve;
 
 use util::Part;
 
 fn main() {
-    let fast_only = true;
+    let fast_only = false;
 
     println!("1A: {:?}", day01_solve("inputs/day01.txt", Part::A));
     println!("1B: {:?}", day01_solve("inputs/day01.txt", Part::B));
@@ -46,18 +48,9 @@ fn main() {
         println!("5A: {:?}", day05_solve("inputs/day05.txt", Part::A));
         println!("5B: {:?}", day05_solve("inputs/day05.txt", Part::B));
     }
-    println!("6A-Test: {:?}", day06_solve("inputs/day06_test.txt", Part::A));
-    println!("6B-Test: {:?}", day06_solve("inputs/day06_test.txt", Part::B));
+
     println!("6A: {:?}", day06_solve("inputs/day06.txt", Part::A));
     println!("6B: {:?}", day06_solve("inputs/day06.txt", Part::B));
-
-        let node_re = Regex::new(r"(?x)
-(?P<name>[a-z]+)
-\s+
-\((?P<weight>[0-9]+)\)
-").unwrap();
-
-    node_re.captures("abcde (1)").unwrap();
 
     println!("7A: {:?}", day07_solve("inputs/day07.txt", Part::A));
     println!("7B: {:?}", day07_solve("inputs/day07.txt", Part::B));
@@ -107,7 +100,7 @@ fn main() {
     println!("19B: {}", day19_solve("inputs/day19.txt", Part::B).unwrap());
 
     println!("20A: {}", day20_solve("inputs/day20.txt", Part::A).unwrap());
-    // println!("20B: {}", day20_solve("inputs/day20.txt", Part::B).unwrap());
+    println!("20B: {}", day20_solve("inputs/day20.txt", Part::B).unwrap());
 
     println!("21A: {}", day21_solve("inputs/day21.txt", Part::A).unwrap());
     if !fast_only {
@@ -118,6 +111,10 @@ fn main() {
         println!("22B: {}", day22_solve("inputs/day22.txt", Part::B).unwrap());
     }
     println!("23A: {}", day23_solve("inputs/day23.txt", Part::A).unwrap());
-    println!("23B: {}", day23_solve("inputs/day23_mod.txt", Part::B).unwrap());
+    println!("23B: {}", day23_solve("inputs/day23.txt", Part::B).unwrap());
 
+    println!("24A: {}", day24_solve("inputs/day24.txt", Part::A).unwrap());
+    println!("24B: {}", day24_solve("inputs/day24.txt", Part::B).unwrap());
+
+    println!("25A: {}", day25_solve());
 }

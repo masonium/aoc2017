@@ -1,4 +1,5 @@
 use prelude::*;
+use primal::is_prime;
 
 #[derive(Clone, Copy, Debug)]
 enum Ref {
@@ -118,8 +119,12 @@ pub fn solve<T: AsRef<Path>>(f: T, p: Part) -> io::Result<usize> {
     let file = File::open(f)?;
     let reader = BufReader::new(file);
 
-    let insts: Vec<_> = reader.lines().map(|s| Inst::parse(&s.unwrap())).collect();
-    let mut vm = VMa::new(p == Part::B);
+    if p == Part::A {
+        let insts: Vec<_> = reader.lines().map(|s| Inst::parse(&s.unwrap())).collect();
+        let mut vm = VMa::new(p == Part::B);
 
-    Ok(vm.run(&insts))
+        Ok(vm.run(&insts))
+    } else {
+        Ok(1001 - (0..1001u64).filter(|x| is_prime(109300 + 17 * x)).count())
+    }
 }
