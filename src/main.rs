@@ -1,8 +1,6 @@
 extern crate aoc2017;
 extern crate regex;
 
-use regex::Regex;
-
 use aoc2017::{day01, util};
 
 use day01::solve as day01_solve;

@@ -58,7 +58,7 @@ fn trace_path(g: &Array2<Spot>, p: Part) -> String {
     let mut dir = (1, 0);
 
     // find the start
-    let s = g.subview(Axis(0), 0).iter().position(|c| *c == Spot::Path).unwrap();
+    let s = g.index_axis(Axis(0), 0).iter().position(|c| *c == Spot::Path).unwrap();
     let mut pos: (isize, isize) = (0, s as isize);
     let mut count = 1;
 

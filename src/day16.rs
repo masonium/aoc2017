@@ -28,7 +28,7 @@ impl DM {
 fn do_dance(progs: &mut Vec<u8>, dms: &[DM]) {
     for dm in dms {
         match *dm {
-            DM::Spin(a) => { progs.rotate(16 - a); },
+            DM::Spin(a) => { progs.rotate_left(16 - a); },
             DM::Exchange(a, b) => { progs.swap(a, b); },
             DM::Partner(x, y) => {
                 let a = progs.iter().position(|c| *c == x).unwrap();
